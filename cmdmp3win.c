@@ -14,6 +14,7 @@
 #include <windows.h>
 #include <string.h>
 #include <stdio.h>
+#include <conio.h>
 
 char msg[256];
 
@@ -30,7 +31,9 @@ int WINAPI WinMain( HINSTANCE hInstance,
 
    char shortBuffer[MAX_PATH];
    char cmdBuff[MAX_PATH + 64];
-   
+
+   printf("%s, %d", __argv[0], __argc);
+   //MessageBox(NULL,msg, __argv[1], MB_OK);
    if(__argc<2) {
       sprintf(msg,"Syntax:\n\tcmdmp3win \"c:\\path to file\\file.mp3\"\n");
       MessageBox(NULL,msg,"cmdmp3win v2.0",MB_OK);
@@ -49,6 +52,8 @@ int WINAPI WinMain( HINSTANCE hInstance,
 
    sprintf(cmdBuff,"Open %s Type MPEGVideo Alias theMP3",shortBuffer);
    sendCommand(cmdBuff);
+
+   
 
    sendCommand("Play theMP3 Wait");
    return 0;

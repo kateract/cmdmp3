@@ -40,6 +40,10 @@ int main(int argc,char **argv) {
    sprintf(cmdBuff,"Open %s Type MPEGVideo Alias theMP3",shortBuffer);
    sendCommand(cmdBuff);
 
+   if (argc = 3){
+      sprintf(cmdBuff,"setaudio theMP3 Volume to %s", argv[2]);
+      mciSendString(cmdBuff, 0,0,0);
+   }
    sendCommand("Play theMP3 Wait");
    return 0;
 }
